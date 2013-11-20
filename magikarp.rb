@@ -1,0 +1,3 @@
+class Magikarp
+
+end
