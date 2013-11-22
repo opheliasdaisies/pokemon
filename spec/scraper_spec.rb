@@ -8,7 +8,7 @@ end
 
 describe Scraper, "#html" do
 	it "should return an HTML document" do
-		expect(Scraper.new("http://bulbapedia.bulbgarden.net").html).to be_a_kind_of(Document)
+		expect(Scraper.new("http://bulbapedia.bulbgarden.net").html).to be_a_kind_of(Nokogiri::HTML::Document)
 	end	
 end
 
