@@ -10,5 +10,9 @@ class Scraper
 		@html = Nokogiri::HTML(download)
 	end
 
-end
+	def get_species
+		getting_species = html.search("#firstHeading span").text.split(" (P")
+		species = getting_species[0].to_s
+	end
 
+end
