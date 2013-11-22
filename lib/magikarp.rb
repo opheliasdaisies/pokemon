@@ -1,8 +1,8 @@
 class Magikarp
 
 	attr_accessor :name, :abilities, :level, :exp, :hp, :ap, :defense, :speed
-	attr_reader :type, :catch_rate, :pokedex, :gender
-	
+	attr_reader :type, :catch_rate, :pokedex, :gender, :habitat
+
 	LEARNSET = {
 		"Splash" => 0,
 		"Tackle" => 15,
@@ -22,6 +22,7 @@ class Magikarp
 		@defense = 55
 		@speed = 80
 		@gender = rand > 0.5 ? "female":"male"
+		@habitat = "water"
 	end
 
 end

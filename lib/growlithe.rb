@@ -1,7 +1,7 @@
 class Growlithe
 
 	attr_accessor :name, :abilities, :level, :exp, :hp, :ap, :defense, :speed
-	attr_reader :type, :catch_rate, :pokedex, :gender
+	attr_reader :type, :catch_rate, :pokedex, :gender, :habitat
 
 	LEARNSET = {
 		"Bite" => 0,
@@ -37,6 +37,7 @@ class Growlithe
 		@defense = 45
 		@speed = 60
 		@gender = rand > 0.75 ? "female":"male"
+		@habitat = "grassy plains"
 	end
 
 end

@@ -1,8 +1,8 @@
 class Larvitar
 
 	attr_accessor :name, :abilities, :level, :exp, :hp, :ap, :defense, :speed
-	attr_reader :type, :catch_rate, :pokedex, :gender
-	
+	attr_reader :type, :catch_rate, :pokedex, :gender, :habitat
+
 	LEARNSET = {
 		"Bite" => 0,
 		"Leer" => 0,
@@ -33,6 +33,7 @@ class Larvitar
 		@defense = 50
 		@speed = 41
 		@gender = rand > 0.5 ? "female":"male"
+		@habitat = "mountains"
 	end
 
 end
