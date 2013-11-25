@@ -3,23 +3,28 @@ require "nokogiri"
 
 class Scraper
 
-	attr_reader :html
+	attr_reader :html, :new_html
 
 	def initialize(url)
 		download = open(url)
 		@html = Nokogiri::HTML(download)
 	end
 
-	def get_species
-		#getting_species = html.search("#firstHeading span").text.split(" (P")
-		#species = getting_species[0].to_s
-
-		getting_species = html.search("tr td:nth-child(4) a span")
-		species = []
-		getting_species.map do |pokemon|
-			pokemon.text
+	def child_url
+		html.search("tr td:nth-child(4) a").map do |anchor|
+			anchor['href']
 		end
 	end
 
-end
+	def get_species
+		all_species = []
+		child_url.each do |element|
+			new_html = Nokogiri::HTML(open("http://bulbapedia.bulbagarden.net#{element}"))
+			species = new_html.search("#firstHeading span").text.split(" (P")
+			puts species[0]
+			all_species << species[0]
+		end
+		all_species
+	end
 
+end
